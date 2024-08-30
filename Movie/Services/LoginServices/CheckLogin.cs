@@ -15,8 +15,14 @@ var userModel= await userManager.FindByEmailAsync(Email);
             }
      bool result= await userManager.CheckPasswordAsync(userModel,Password);
             if (!result) {
+<<<<<<< HEAD
                 Console.WriteLine("please enter the number ");
             return false;
+=======
+                Console.WriteLine("please enter te right one ");
+                Console.WriteLine("for  testing ");
+                return false;
+>>>>>>> 1faba3ac657e3857ebad6c57bd0849c95bb333b1
             }
             return true;
         
