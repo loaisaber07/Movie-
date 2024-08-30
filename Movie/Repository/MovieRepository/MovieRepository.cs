@@ -14,17 +14,23 @@ namespace Movie.Repository.MovieRepository
         }
         public  IQueryable<Entity.Movie> GetAll()
         {
-            return context.Movies.AsNoTracking() ; 
+            return context.Movies.Include(s =>s.Rates).Include(s=>s.Reviews).Include(s=>s.Actors)
+                .AsNoTracking(); 
         }
 
-        public Entity.Movie GetById(int id)
+        public Entity.Movie? GetById(int id)
         {
-            throw new NotImplementedException();
+           return context.Movies.AsNoTracking()
+                .Include(s => s.Rates).Include(s => s.Reviews).Include(s => s.Actors)
+                .FirstOrDefault(s=>s.ID == id);
         }
 
-        public Entity.Movie GetByTitle(string title)
+        public Entity.Movie? GetByTitle(string title)
         {
-            throw new NotImplementedException();
+            return context.Movies.AsNoTracking()
+              .Include(s => s.Rates).Include(s => s.Reviews).Include(s => s.Actors)
+              .FirstOrDefault(s => s.Name ==title);
+
         }
     }
 }
