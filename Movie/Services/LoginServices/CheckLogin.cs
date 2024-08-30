@@ -15,11 +15,20 @@ var userModel= await userManager.FindByEmailAsync(Email);
             }
      bool result= await userManager.CheckPasswordAsync(userModel,Password);
             if (!result) {
+<<<<<<< HEAD
                 Console.WriteLine("this comment for master ");
                 Console.WriteLine("conflic resolved "); 
+=======
+
+                Console.WriteLine("please enter the number ");
+            return false;
+
+>>>>>>> ed14e2933fa31165db4622daedb95b19aafe4017
                 Console.WriteLine("please enter te right one ");
                 Console.WriteLine("for  testing ");
+                Console.WriteLine("for  testing ");
                 return false;
+
             }
             return true;
         
